@@ -17,17 +17,6 @@ const App = () => {
     setZoomLevel(event.target.value);
   };
 
-  const handleZoomIn = () => {
-    if (zoomLevel < 200) {
-      setZoomLevel(zoomLevel + 10);
-    }
-  };
-
-  const handleZoomOut = () => {
-    if (zoomLevel > 10) {
-      setZoomLevel(zoomLevel - 10);
-    }
-  };
   return (
     <div className="h-[100vh] w-full flex  items-center justify-center flex-wrap p-5 bg-fuchsia-400">
       <div className="container w-full flex items-center justify-center m-auto gap-x-2">
@@ -61,7 +50,7 @@ const App = () => {
               alt=""
             />
           </div>
-          <div className="m-3 flex flex-col">
+          <div className="m-1 flex flex-col">
             <input
               type="range"
               min="10"
@@ -70,7 +59,7 @@ const App = () => {
               value={zoomLevel}
               onChange={handleZoomChange}
             />
-            <p>Zoom Slider To Zoom In Out</p>
+            <p className="m-2">Zoom Slider</p>
           </div>
         </div>
       </div>
