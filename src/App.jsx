@@ -29,50 +29,60 @@ const App = () => {
     }
   };
   return (
-    <div className="h-[100vh] w-full flex  items-center justify-center bg-fuchsia-400">
-      <div className="container max-w-7xl m-auto grid grid-cols-2">
-        <div className=" left flex">
-          <div className="left1 flex flex-col gap-3">
-            {images.map((image, index) => (
-              <div
-                key={index}
-                className="img-wrap w-20 h-20 border-solid cursor-pointer"
-                onMouseOver={() => hoverHandle(image, index)}
-              >
-                <img
-                  className="w-16 h-16 object-contain"
-                  src={image}
-                  alt={index}
-                />
-              </div>
-            ))}
-          </div>
+    <div className="h-[100vh] w-full flex  items-center justify-center flex-wrap p-5 bg-fuchsia-400">
+      <div className="container w-full flex items-center justify-center m-auto gap-x-2">
+        <div className="left flex flex-col gap-3 m-5">
+          {images.map((image, index) => (
+            <div
+              key={index}
+              className="img-wrap  w-16 h-16 lg:w-20 lg:h-20 border-solid cursor-pointer"
+              onMouseOver={() => hoverHandle(image, index)}
+            >
+              <img
+                className="w-14 h-14 lg:w-16 lg:h-16 rounded-lg object-contain"
+                src={image}
+                alt={index}
+              />
+            </div>
+          ))}
+        </div>
+
+        <div className="right flex flex-col flex-wrap ">
           <div
-            className="left2"
+            className=""
             style={{
               transform: `scale(${zoomLevel / 100})`,
               transformOrigin: "top left",
             }}
           >
             <img
-              className="w-[500px] h-[100%] object-fill"
+              className="w-[400px] h-[80%] object-contain"
               src={imageSelected}
               alt=""
             />
           </div>
-        </div>
-        <div>
-          {" "}
-          <button onClick={handleZoomIn}>Zoom In</button>
-          <input
-            type="range"
-            min="10"
-            max="200"
-            step="10"
-            value={zoomLevel}
-            onChange={handleZoomChange}
-          />
-          <button onClick={handleZoomOut}>Zoom Out</button>
+          <div>
+            <button
+              onClick={handleZoomIn}
+              className="border border-black rounded-lg p-2 m-5"
+            >
+              Zoom In
+            </button>
+            <input
+              type="range"
+              min="10"
+              max="200"
+              step="10"
+              value={zoomLevel}
+              onChange={handleZoomChange}
+            />
+            <button
+              className="border border-black rounded-lg p-2 m-5"
+              onClick={handleZoomOut}
+            >
+              Zoom Out
+            </button>
+          </div>
         </div>
       </div>
     </div>
