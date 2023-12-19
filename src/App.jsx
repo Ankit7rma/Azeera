@@ -39,7 +39,7 @@ const App = () => {
               onMouseOver={() => hoverHandle(image, index)}
             >
               <img
-                className="w-14 h-14 lg:w-16 lg:h-16 rounded-lg object-contain"
+                className="w-14 h-14 border p-1 lg:w-16 lg:h-16 rounded-lg object-contain"
                 src={image}
                 alt={index}
               />
@@ -61,13 +61,7 @@ const App = () => {
               alt=""
             />
           </div>
-          <div>
-            <button
-              onClick={handleZoomIn}
-              className="border border-black rounded-lg p-2 m-5"
-            >
-              Zoom In
-            </button>
+          <div className="m-3 flex flex-col">
             <input
               type="range"
               min="10"
@@ -76,12 +70,7 @@ const App = () => {
               value={zoomLevel}
               onChange={handleZoomChange}
             />
-            <button
-              className="border border-black rounded-lg p-2 m-5"
-              onClick={handleZoomOut}
-            >
-              Zoom Out
-            </button>
+            <p>Zoom Slider To Zoom In Out</p>
           </div>
         </div>
       </div>
